@@ -1,10 +1,12 @@
 use cursive::{
     align::HAlign,
     event::{Event, EventResult},
-    theme::{ColorStyle, BorderStyle},
+    theme::ColorStyle,
     view::ViewWrapper,
     Printer, Rect, Vec2, View, wrap_impl, inner_getters,
 };
+
+use crate::config::BorderStyle;
 
 pub struct Panel<V> {
     /// Inner View
@@ -196,8 +198,8 @@ impl<V: View> ViewWrapper for Panel<V> {
 }
 
 pub trait WithPanel: View + Sized {
-    fn with_panel(self) -> Panel<Self> {
-        Panel::new(self, CONFIG.theme.border)
+    fn with_panel(self, border: BorderStyle) -> Panel<Self> {
+        Panel::new(self, border)
     }
 }
 

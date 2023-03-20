@@ -21,6 +21,8 @@ fn main() {
     //ser.open();
     //ser.write(b"$AT 00 00 0 0208^0B");
     let mut siv = Cursive::new();
+    siv.add_global_callback('q', Cursive::quit);
+    siv.add_global_callback(Key::Esc, Cursive::quit);
     let mut ui = UI::new(siv, config::Keybindings::new());
 
     ui.home();

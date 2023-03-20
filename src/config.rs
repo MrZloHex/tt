@@ -35,3 +35,15 @@ pub enum BorderStyle {
     Heavy,
     Round,
 }
+
+impl From<&String> for BorderStyle {
+    fn from(s: &String) -> Self {
+        match s.to_lowercase().as_str() {
+            "default" => BorderStyle::Default,
+            "light" => BorderStyle::Light,
+            "heavy" => BorderStyle::Heavy,
+            "round" => BorderStyle::Round,
+            _ => BorderStyle::Default,
+        }
+    }
+}

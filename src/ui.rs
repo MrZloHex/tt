@@ -2,7 +2,7 @@ use cursive::{Cursive, CursiveExt};
 use cursive::view::Resizable;
 
 use crate::root::RootLayout;
-use crate::config::Keybindings;
+use crate::config::{Keybindings, BorderStyle};
 use crate::panel::WithPanel;
 
 pub struct UI {
@@ -30,8 +30,8 @@ impl UI {
                 // .child(search_promt)
                 .input(true)
                 .full_screen()
-                .with_panel()
-                .title("malsa"),
+                .with_panel(BorderStyle::Heavy)
+                .title("TT"),
         ) 
     }
 }
